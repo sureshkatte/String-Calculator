@@ -22,5 +22,9 @@ RSpec.describe Calculator, type: :service do
       expect(Calculator.add("//;\n1;2")).to eq(3)
     end
 
+    it 'raises an error for a single negative number' do
+      expect { Calculator.add("-1") }.to raise_error("negative numbers not allowed: -1")
+    end
+
   end
 end
