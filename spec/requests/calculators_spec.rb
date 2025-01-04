@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "Calculators", type: :request do
   describe "GET /calculate" do
     it "returns the correct result for valid input" do
-      get '/calculators/add', params: { input: 5 }
+      get '/calculate', params: { input: 5 }
       expect(response).to have_http_status(:success)
 
       json_response = JSON.parse(response.body)
