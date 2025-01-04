@@ -5,5 +5,17 @@ RSpec.describe Calculator, type: :service do
     it 'returns 0 for an empty string' do
       expect(Calculator.add("")).to eq(0)
     end
+
+    it 'returns the number of single number string' do
+      expect(Calculator.add("5")).to eq(5)
+    end
+
+    it 'returns the sum of two numbers separated by comma' do
+      expect(Calculator.add("1,2")).to eq(3)
+    end
+
+    it 'handles multiple numbers' do
+      expect(Calculator.add("1,2,3,4")).to eq(10)
+    end
   end
 end
