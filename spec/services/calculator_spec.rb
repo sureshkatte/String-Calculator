@@ -17,5 +17,10 @@ RSpec.describe Calculator, type: :service do
     it 'handles multiple numbers' do
       expect(Calculator.add("1,2,3,4")).to eq(10)
     end
+
+    it 'supports custom delimiters' do
+      expect(Calculator.add("//;\n1;2")).to eq(3)
+    end
+
   end
 end
