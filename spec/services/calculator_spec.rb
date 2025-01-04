@@ -26,5 +26,13 @@ RSpec.describe Calculator, type: :service do
       expect { Calculator.add("-1") }.to raise_error("negative numbers not allowed: -1")
     end
 
+    it 'raises an error for multiple negative numbers' do
+      expect { Calculator.add("-1,-2,3") }.to raise_error("negative numbers not allowed: -1,-2")
+    end
+
+    it 'handles mixed numbers and raises an error for negatives' do
+      expect { Calculator.add("1,-2,3,-4") }.to raise_error("negative numbers not allowed: -2,-4")
+    end
+
   end
 end
